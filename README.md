@@ -31,18 +31,6 @@ if (viewType == VIEW_TYPE_ONE) {
 ## Usage
 
 ### Kotlin
-
-var adapter: CellAdapter = CellAdapter().let {
-        it.cell(SampleCell1::class) {
-            item(SampleModel1::class)
-            listener(object : SampleCell1.Listener {})
-        }
-        it.cell(SampleCell2::class) {
-            item(SampleModel2::class)
-            listener(object : SampleCell2.Listener {})
-        }
-    }
-
 ```java
 private var cellAdapter: CellAdapter = CellAdapter().apply {
     cell(
