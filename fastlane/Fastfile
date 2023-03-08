@@ -1,0 +1,18 @@
+default_platform(:android)
+
+platform :android do
+
+  desc "Build Library"
+  lane :build_library do
+    gradle(task: "clean :celladapter:assembleRelease")
+    UI.message "Build Library"
+  end
+
+  desc "Publish Release Library to the Local Maven"
+  lane :publish_locally do
+    build_library()
+    gradle(task: "publishMavenPublicationToMavenLocal")
+    UI.message "Publish Release Library to the Local Maven"
+  end
+
+end

@@ -1,6 +1,7 @@
 plugins {
   id 'com.android.library'
   id 'org.jetbrains.kotlin.android'
+  id 'maven-publish'
 }
 
 android {
@@ -39,4 +40,27 @@ android {
 dependencies {
   compileOnly "androidx.recyclerview:recyclerview:1.3.0-rc01"
   implementation "org.jetbrains.kotlin:kotlin-reflect:1.7.22"
+}
+
+publishing {
+  publications {
+    maven(MavenPublication) {
+      groupId 'io.erva'
+      artifactId 'celladapter2'
+      version '1.0.1'
+      artifact "$buildDir/outputs/aar/celladapter-release.aar"
+
+      pom.withXml {
+        def dependenciesNode = asNode().appendNode('dependencies')
+        configurations.implementation.allDependencies.each { dependency ->
+          if (dependency.name != 'unspecified') {
+            def dependencyNode = dependenciesNode.appendNode('dependency')
+            dependencyNode.appendNode('groupId', dependency.group)
+            dependencyNode.appendNode('artifactId', dependency.name)
+            dependencyNode.appendNode('version', dependency.version)
+          }
+        }
+      }
+    }
+  }
 }
