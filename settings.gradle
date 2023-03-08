@@ -12,6 +12,6 @@ dependencyResolutionManagement {
     mavenCentral()
   }
 }
-rootProject.name = "CellAdapter2"
+rootProject.name = "celladapter2"
 include ':sample'
 include ':celladapter'

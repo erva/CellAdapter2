@@ -4,7 +4,7 @@ import androidx.recyclerview.widget.RecyclerView
 import androidx.viewbinding.ViewBinding
 import io.erva.celladapter2.Cell.Listener
 
-abstract class Cell<ITEM : Any, VB : ViewBinding, out LISTENER : Listener<ITEM>>(private val binding: VB) :
+abstract class Cell<ITEM : Any, VB : ViewBinding, out LISTENER : Listener<ITEM>>(binding: VB) :
     RecyclerView.ViewHolder(binding.root) {
 
     var item: Any? = null
@@ -20,6 +20,7 @@ abstract class Cell<ITEM : Any, VB : ViewBinding, out LISTENER : Listener<ITEM>>
 
     abstract fun bindView()
 
+    @Suppress("UNCHECKED_CAST")
     fun item(): ITEM {
         return item as ITEM
     }
@@ -28,6 +29,7 @@ abstract class Cell<ITEM : Any, VB : ViewBinding, out LISTENER : Listener<ITEM>>
         this.item = item
     }
 
+    @Suppress("UNCHECKED_CAST")
     fun listener(): LISTENER? {
         return listener as LISTENER?
     }
