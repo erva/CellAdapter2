@@ -38,7 +38,7 @@ publishing {
     maven(MavenPublication) {
       groupId 'io.erva'
       artifactId 'celladapter2'
-      version '1.0.2'
+      version '1.0.3'
       artifact "$buildDir/outputs/aar/celladapter-release.aar"
 
       pom.withXml {

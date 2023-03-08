@@ -71,7 +71,7 @@ Check samples for details.
 
 ## Versions
 
-### 1.0.2 
+### 1.0.3 
 Added selections
 
 ### 1.0.0 
@@ -90,7 +90,7 @@ allprojects {
 Add the dependency:
 ```groovy
 dependencies {
-    implementation "com.github.erva.CellAdapter2:celladapter:1.0.2"
+    implementation "com.github.erva:celladapter2:1.0.3"
 }
 ```
 
